@@ -1,0 +1,8 @@
+pandas
+numpy
+streamlit
+pickle4
+regex
+nltk
+textblob
+scikit-learn
