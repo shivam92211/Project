@@ -1,6 +1,9 @@
-FROM python:3.11.3
-COPY . /app
+FROM python:3.11.3-slim-buster
 WORKDIR /app
+COPY . /app
+
+RUN apt update -y && apt install awscli -y
+
 RUN pip install -r requirements.txt
-EXPOSE $PORT
-CMD gunicorn --worker=4 --bind 0.0.0.0:$PORT app:app
+
+CMD ["streamlit", "run", "app.py"]
